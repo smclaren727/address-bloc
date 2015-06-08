@@ -21,4 +21,8 @@ class AddressBook
     #10 - Insert a new entry into entries using the calculated index from steps 8 & 9.
     @entries.insert(index, Entry.new(name, phone, email))
   end
+
+  def remove_entry(name)
+    @entries.delete_if {|entry| name = entry.name } 
+  end
 end
