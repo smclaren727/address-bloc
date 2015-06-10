@@ -39,4 +39,32 @@ class AddressBook
     # Get the number of items parsed by calling the count method
     return csv.count
   end
+
+  # Search AddressBook for a specific entry by name
+  def binary_search(name)
+    # Save the index of the leftmost item in the array in a variable named lower and the index of
+    # the righmost in the variable upper
+    lower = 0
+    upper = entries.length - 1
+
+    # We loop while our lower index is less than or equal to our upper index
+    while lower <= upper
+      # We find the middle index then retrieve the name and store it in the variable mid_name
+      mid = (lower + upper) / 2
+      mid_name = entries[mid].name
+
+      # Compare the name we are searching for with mid_name and iterate until we find the correct name
+      if name == mid_name
+        return entries[mid]
+      elsif name < mid_name
+        upper = mid -1
+      elsif name > mid_name
+        lower = mid + 1
+      end
+    end
+        
+    # If no match is found we return nil
+    return nil
+  end
+
 end
