@@ -125,6 +125,11 @@ class MenuController
     puts "#{entry.name} has been deleted"
   end
 
+  def demolish
+    @address_book.entries.clear
+    puts "All entries have been deleted"
+  end
+
   def edit_entry(entry)
     print "Updated name: "
     name = gets.chomp
@@ -147,6 +152,7 @@ class MenuController
     puts "n - next entry"
     puts "d - delete entry"
     puts "e - edit this entry"
+    puts "x - delete all entries"
     puts "m - return to main menu"
 
     # Chomp removes any trailing whitespace from the string gets returns
@@ -161,6 +167,8 @@ class MenuController
     when "e"
       edit_entry(entry)
       entry_submenu(entry)
+    when "x"
+      demolish
     when "m"
       system "clear"
       main_menu
