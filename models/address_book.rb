@@ -73,7 +73,7 @@ class AddressBook
     #index = 0
     @entries.each do |entry|
       if name == entry.name
-        return entries.name
+        return entry
         #index += 1
       else
         return nil

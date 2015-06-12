@@ -186,6 +186,7 @@ RSpec.describe AddressBook do
     it "searches AddressBook for Sussie" do
       book.import_from_csv("entries.csv")
       entry = book.iterative_search("Sussie")
+      puts "dasdsadsaads" if entry.nil?
       expect entry.instance_of?(Entry)
       check_entry(entry, "Sussie", "555-555-5555", "sussie@blocmail.com")
     end
